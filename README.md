@@ -7,7 +7,6 @@ steve:
   Hacker: true
   hobbies:
     - skateboarding
-    - 
     - snowboarding
     - go
   clothing:
@@ -22,10 +21,10 @@ example.go
 ```go
 package main
 
-import "github.com/holbos-deng/rdc"
+import "github.com/holbos-deng/dc"
 
 func main() {
-    conf := rdc.New("test.yaml")
+    conf := dc.New("test.yaml")
 
     conf.Get("steve.age").Value()     // 35
     conf.Get("steve.hobbies").Value() // [skateboarding snowboarding go ]
