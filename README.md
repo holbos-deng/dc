@@ -21,15 +21,25 @@ example.go
 ```go
 package main
 
-import "github.com/holbos-deng/dc"
+import (
+	"fmt"
+
+	"github.com/holbos-deng/dc"
+)
 
 func main() {
-    conf := dc.New("test.yaml")
+	conf := dc.New("example.yaml")
 
-    conf.Get("steve.age").Value()     // 35
-    conf.Get("steve.hobbies").Value() // [skateboarding snowboarding go ]
-    steve := conf.Get("steve")
-    steve.Get("clothing").Get("jacket").Value() // leather
-    steve.Get("clothing").Get("jacket").Key()   // steve.clothing.jacket
+	v1 := conf.Get("steve.age").Value()     // 35
+	v2 := conf.Get("steve.hobbies").Value() // [skateboarding snowboarding go ]
+	steve := conf.Get("steve")
+	v3 := steve.Get("clothing").Get("jacket").Value() // leather
+	v4 := steve.Get("clothing").Get("jacket").Key()   // steve.clothing.jacket
+
+	fmt.Println(v1)
+	fmt.Println(v2)
+	fmt.Println(v3)
+	fmt.Println(v4)
 }
+
 ```
